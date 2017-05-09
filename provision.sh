@@ -4,6 +4,14 @@ curl -sL https://deb.nodesource.com/setup_6.x | sh
 apt-get install -y nodejs
 
 # Create sym-link so node_modules aren't shared to host
+rm -rf node_modules
 mkdir node_modules
 cd /vagrant
-ln -s /home/vagrant/node_modules node_modules
+ln -nsf /home/vagrant/node_modules node_modules
+
+
+npm install
+
+npm i -g forever
+
+forever start app.js
