@@ -12,6 +12,8 @@ ln -nsf /home/vagrant/node_modules node_modules
 
 npm install
 
+npm i -g webpack
 npm i -g forever
 
+webpack
 forever start app.js
