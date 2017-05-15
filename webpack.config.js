@@ -21,7 +21,7 @@ const config = {
 		
 	},
 	watchOptions: {
-		poll: 3000
+		poll: 500
 	}
 }
 
