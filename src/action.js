@@ -13,3 +13,10 @@ export function viewTopic (id) {
 		id
 	}
 }
+
+export function changeNotes (id, text) {
+	return {
+		type: "CHANGE_NOTES",
+		id, text
+	}
+}

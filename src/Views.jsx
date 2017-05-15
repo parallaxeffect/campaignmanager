@@ -1,21 +1,35 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {getTopicNameById} from './selector.js'
+import {getTopicNameById, getNoteById} from './selector.js'
+import {changeNotes} from './action.js'
 
 @connect((state)=>{
-	const name = getTopicNameById(state, state.view)
-	return {name}
+	const name = getTopicNameById(state, state.view);
+	const note = getNoteById(state, state.view);
+	const id = state.view;
+	return {name, note, id}
+}, (dispatch)=>{
+	return {
+		changeNotes: (id, text) => dispatch(changeNotes(id, text))
+	}
 })
-export class View extends React.Component {
+export class NoteView extends React.Component {
+	handleChange (e) {
+		const {id, changeNotes} = this.props;
+		const note = e.target.value;
+		changeNotes(id, note);
+	}
 	render () {
-		const {name} = this.props;
-		return <div>{name}</div>
+		const {name, note} = this.props;
+		return name != "" ? <div>{name}
+				<textarea value={note} onChange={(e)=>this.handleChange(e)}/>
+			</div> : null
 	}
 }
 
 export class Views extends React.Component {
 	render () {
-		return <View/>
+		return <NoteView/>
 	}
 }

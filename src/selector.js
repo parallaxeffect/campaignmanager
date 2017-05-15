@@ -8,3 +8,7 @@ export const getTopics = (state)=>{
 export const getTopicNameById = (state, id) => {
 	return id != undefined ? state.topics[id].name : ""
 }
+
+export const getNoteById = (state, id) => {
+	return state.notes[id] ? state.notes[id] : ""
+}

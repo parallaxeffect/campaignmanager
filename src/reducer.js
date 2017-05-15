@@ -31,4 +31,13 @@ export const view = (state=null, action) => {
 	}
 }
 
-export const reducer = combineReducers({topics, view});
+export const notes = (state={}, action) => {
+	switch (action.type) {
+	case "CHANGE_NOTES":
+		return { ...state, [action.id]: action.text};
+	default:
+		return state;
+	}
+}
+
+export const reducer = combineReducers({topics, view, notes});
