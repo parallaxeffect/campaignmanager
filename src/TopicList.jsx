@@ -1,13 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {getTopics} from './selector.js';
+import {empty, getTopics} from './selector.js';
+import {viewTopic} from './action.js';
 
+@connect(empty, (dispatch) => {
+	return {
+		onSelect: (id) => dispatch(viewTopic(id))
+	}
+})
 export class Topic extends React.Component {
 	render () {
-		const {name} = this.props;
+		const {name, id, onSelect} = this.props;
 	
-		return <div>{name}</div>
+		return <div onClick = {() => onSelect(id)}>{name}</div>
 	}
 }
 
@@ -17,7 +23,7 @@ export class TopicList extends React.Component {
 		const {topics} = this.props;
 	
 		return <ol>{topics.map((item) => {
-			return <li key={item.id}><Topic name={item.name}/></li>;
+			return <li key={item.id}><Topic id={item.id} name={item.name}/></li>;
 		})}</ol>
 	}
 }

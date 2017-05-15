@@ -6,6 +6,7 @@ import {Provider} from 'react-redux';
 import {reducer} from './reducer.js'
 import {TopicList} from './TopicList.jsx'
 import {AddTopic} from './AddTopic.jsx'
+import {Views} from './Views.jsx'
 
 const store = createStore(reducer);
 
@@ -14,8 +15,11 @@ class App extends React.Component {
 		return (
 		    <Provider store = {store}>
 			<div>
+			<div>
 				<TopicList/>
 				<AddTopic/>
+			</div>
+			<Views/>
 			</div>
 			</Provider>)
 	}

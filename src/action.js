@@ -6,3 +6,10 @@ export function addTopic (name) {
 		name
 	}
 }
+
+export function viewTopic (id) {
+	return {
+		type: 'VIEW_TOPIC',
+		id
+	}
+}

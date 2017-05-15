@@ -1,21 +1,34 @@
+import {combineReducers} from 'redux';
 
-const initialState = {topics: [
-	{ id: 0, name: "Xain"},
-	{ id: 1, name: "Fizzit"},
-	{ id: 2, name: "Sazh"},
-	{ id: 3, name: "Mailee"}
-	]};
+const initialTopics = {
+	0: { id: 0, name: "Xain"},
+	1: { id: 1, name: "Fizzit"},
+	2: { id: 2, name: "Sazh"},
+	3: { id: 3, name: "Mailee"}
+};
 
-export const reducer = (state=initialState, action) => {
+var topicId = 4;
+	
+export const topics = (state=initialTopics, action) => {
 	switch (action.type) {
 	
 	case 'ADD_TOPIC':
-		const topic = { id: state.topics.length, 
-						name: action.name }
-		const list = state.topics.concat(topic);
-		return { topics: list };
+		const id = topicId++;
+		const topic = { id, name: action.name }
+		return { ...state, [id]: topic};
 	
 	default:
 		return state;
 	}
 }
+
+export const view = (state=null, action) => {
+	switch(action.type) {
+	case 'VIEW_TOPIC':
+		return action.id;
+	default:
+		return state;
+	}
+}
+
+export const reducer = combineReducers({topics, view});
