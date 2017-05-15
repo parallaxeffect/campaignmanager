@@ -40,4 +40,12 @@ export const notes = (state={}, action) => {
 	}
 }
 
-export const reducer = combineReducers({topics, view, notes});
+export const reducer = (state, action) => {
+	switch (action.type) {
+	case "RECEIVE_STATE":
+		return action.state;
+		
+	default:
+		return combineReducers({topics, view, notes})(state, action);
+	}
+}
