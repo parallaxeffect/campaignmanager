@@ -1,8 +1,11 @@
 
+// generate random uids
+const uid = () => Math.random().toString(34).slice(2);
 
 export function addTopic (name) {
 	return {
 		type: 'ADD_TOPIC',
+		id: uid(),
 		name
 	}
 }

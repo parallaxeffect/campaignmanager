@@ -27,8 +27,8 @@ export class NoteView extends React.Component {
 		changeName(id, name);
 	}
 	render () {
-		const {name, note} = this.props;
-		return name != "" ? <div><input type='text' value={name} onChange={(e)=>this.handleNameChange(e)}/>
+		const {id, name, note} = this.props;
+		return id ? <div><input type='text' value={name} onChange={(e)=>this.handleNameChange(e)}/>
 				<textarea value={note} onChange={(e)=>this.handleChange(e)}/>
 			</div> : null
 	}

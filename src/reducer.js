@@ -1,19 +1,11 @@
 import {combineReducers} from 'redux';
 
-const initialTopics = {
-	0: { id: 0, name: "Xain"},
-	1: { id: 1, name: "Fizzit"},
-	2: { id: 2, name: "Sazh"},
-	3: { id: 3, name: "Mailee"}
-};
-
-var topicId = 4;
 	
-export const topics = (state=initialTopics, action) => {
+export const topics = (state={}, action) => {
 	switch (action.type) {
 	
 	case 'ADD_TOPIC':
-		const id = topicId++;
+		const id = action.id;
 		const topic = { id, name: action.name }
 		return { ...state, [id]: topic};
 	
