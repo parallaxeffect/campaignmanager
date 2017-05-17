@@ -1,0 +1,31 @@
+
+
+h1 {
+	color: navy;
+}
+
+.topicList {
+	list-style: none;
+	color: black;
+}
+
+.topicList li div{
+	min-height: 50px;
+	width: 200px;
+	border: solid 1px;
+	background: gray;
+	cursor: pointer;
+}
+
+.topicList li div span {
+	font-size: 32px; 
+	font-weight: bold;
+	position: relative;
+	right: 0;
+}
+
+ button {
+	 background: green;
+	 padding: 10px;
+	 border: none;
+ }

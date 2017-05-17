@@ -17,6 +17,12 @@ export const topics = (state=initialTopics, action) => {
 		const topic = { id, name: action.name }
 		return { ...state, [id]: topic};
 	
+	case 'DELETE_TOPIC':
+		console.log('DELETED')
+		let { [action.id.toString()]: deleted, ...rest } = state;
+		console.log(rest)
+		return rest;
+	
 	default:
 		return state;
 	}

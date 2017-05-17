@@ -12,13 +12,14 @@ const server = app.listen(port, function() {
 
 const io = require('socket.io')(server);
 
-const state = JSON.parse(fs.readFileSync('./state.json'));
+var state = JSON.parse(fs.readFileSync('./state.json'));
 
 io.on('connection', function(socket) {
 	console.log('user connected');
 	socket.emit('state', state);
-	socket.on('state', (state)=> {
-		console.log('received state');
+	
+	socket.on('state', (newstate)=> {
+		state = newstate;
 		socket.broadcast.emit('state', state);
 		fs.writeFile('./state.json', JSON.stringify(state))
 	}); 

@@ -6,6 +6,7 @@ import {changeNotes} from './action.js'
 
 @connect((state)=>{
 	const name = getTopicNameById(state, state.view);
+	console.log("Name:", name)
 	const note = getNoteById(state, state.view);
 	const id = state.view;
 	return {name, note, id}

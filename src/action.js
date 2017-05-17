@@ -14,6 +14,13 @@ export function viewTopic (id) {
 	}
 }
 
+export function deleteTopic (id) {
+	return {
+		type: 'DELETE_TOPIC',
+		id
+	}
+}
+
 export function changeNotes (id, text) {
 	return {
 		type: "CHANGE_NOTES",

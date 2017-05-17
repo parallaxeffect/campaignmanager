@@ -13,6 +13,8 @@ import {Views} from './Views.jsx'
 const middleware = socket => store => next => action => {
 	const result = next(action);
 	if (action.type != 'RECEIVE_STATE') {
+		const state = store.getState();
+		console.log("outgoing state:", state);
 		socket.emit('state', store.getState());
 	}
 	return result;
@@ -24,7 +26,7 @@ const store = (autoRehydrate())(applyMiddleware(middleware(socket))(createStore)
 persistStore(store);
 
 socket.on('state', (state) => {
-	console.log("incoming state");
+	console.log("incoming state:", state);
 	store.dispatch({type: 'RECEIVE_STATE', state});
 });
 

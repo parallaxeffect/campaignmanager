@@ -1,12 +1,18 @@
 
 export const empty = () => { return {} }
 
+const makeArray = (object) => {
+	return (Object.keys(object).map(key => object[key]));
+}
+
 export const getTopics = (state)=>{
-	return {topics: Object.keys(state.topics).map(id => state.topics[id])} 
+	return {topics: makeArray(state.topics)};
 }
 
 export const getTopicNameById = (state, id) => {
-	return id != undefined ? state.topics[id].name : ""
+	if (id == undefined) { return "" }
+	if (!state.topics[id]) { return "" }
+	return state.topics[id].name
 }
 
 export const getNoteById = (state, id) => {

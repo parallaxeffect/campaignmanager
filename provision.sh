@@ -15,5 +15,5 @@ npm install
 npm i -g webpack
 npm i -g forever
 
-webpack
-forever start app.js
+#webpack
+#forever start app.js
