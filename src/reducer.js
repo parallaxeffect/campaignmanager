@@ -23,6 +23,10 @@ export const topics = (state=initialTopics, action) => {
 		console.log(rest)
 		return rest;
 	
+	case 'CHANGE_NAME':
+		const topic1 = { ...state[action.id], name: action.name};
+		return { ...state, [action.id]: topic1 }
+	
 	default:
 		return state;
 	}

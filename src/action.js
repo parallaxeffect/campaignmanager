@@ -27,3 +27,10 @@ export function changeNotes (id, text) {
 		id, text
 	}
 }
+
+export function changeName(id, name) {
+	return {
+		type: "CHANGE_NAME",
+		id, name
+	}
+}
