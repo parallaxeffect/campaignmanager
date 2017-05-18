@@ -3,6 +3,14 @@
 	flex-direction: row;
 }
 
+body {
+	background-color: #f5f5f5;
+}
+
+form {
+	border-radius: 3px;
+}
+
 h1 {
 	color: navy;
 }

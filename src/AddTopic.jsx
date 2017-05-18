@@ -5,12 +5,19 @@ import {addTopic} from './action.js';
 
 @connect(()=>{return {}}, (dispatch)=>{
 	return {
-		addTopic: ()=>{dispatch(addTopic("thing"))}
+		addTopic: (text)=>{dispatch(addTopic(text))}
 	}
 })
 export class AddTopic extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {text: ''};
+	}
 	render () {
 		const {addTopic} = this.props;
-		return <button onClick={()=>addTopic()}>Add Topic</button>
+		return (<div>
+							<input type='text' placeholder='New Topic' onChange={(e) => this.setState({text: e.target.value})}/>
+							<button onClick={()=>addTopic(this.state.text)}>Add</button>
+						</div>)
 	}
 }

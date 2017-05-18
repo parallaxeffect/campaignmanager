@@ -22,8 +22,10 @@ const middleware = socket => store => next => action => {
 
 const socket = io();
 
-const store = (autoRehydrate())(applyMiddleware(middleware(socket))(createStore))(reducer);
-persistStore(store);
+const store = createStore(reducer);
+
+//const store = (autoRehydrate())(applyMiddleware(middleware(socket))(createStore))(reducer);
+//persistStore(store);
 
 socket.on('state', (state) => {
 	console.log("incoming state:", state);
