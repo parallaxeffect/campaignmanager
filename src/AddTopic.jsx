@@ -13,11 +13,16 @@ export class AddTopic extends React.Component {
 		super(props);
 		this.state = {text: ''};
 	}
+	handleTopic () {
+		this.props.addTopic(this.state.text);
+		this.setState({text: ''});
+	}
 	render () {
 		const {addTopic} = this.props;
 		return (<div>
-							<input type='text' placeholder='New Topic' onChange={(e) => this.setState({text: e.target.value})}/>
-							<button onClick={()=>addTopic(this.state.text)}>Add</button>
+							<input type='text' placeholder='New Topic' value={this.state.text} onChange={
+								(e) => this.setState({text: e.target.value})}/>
+							<button onClick={()=>this.handleTopic()}>Add</button>
 						</div>)
 	}
 }

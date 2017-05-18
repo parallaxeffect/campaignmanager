@@ -39,6 +39,9 @@ export const notes = (state={}, action) => {
 	switch (action.type) {
 	case "CHANGE_NOTES":
 		return { ...state, [action.id]: action.text};
+	case "DELETE_TOPIC":
+		let { [action.id.toString()]: deleted, ...rest } = state;
+		return rest;
 	default:
 		return state;
 	}

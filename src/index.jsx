@@ -22,7 +22,7 @@ const middleware = socket => store => next => action => {
 
 const socket = io();
 
-const store = createStore(reducer);
+const store = (applyMiddleware(middleware(socket))(createStore))(reducer);
 
 //const store = (autoRehydrate())(applyMiddleware(middleware(socket))(createStore))(reducer);
 //persistStore(store);
@@ -37,7 +37,7 @@ class App extends React.Component {
 		return (
 		    <Provider store = {store}>
 			<div>
-			<div>
+			<div className='topics'>
 				<TopicList/>
 				<AddTopic/>
 			</div>

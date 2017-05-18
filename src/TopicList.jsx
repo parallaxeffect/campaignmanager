@@ -26,8 +26,8 @@ export class TopicList extends React.Component {
 	render () {
 		const {topics} = this.props;
 
-		return <ol className='topicList'>{topics.map((item) => {
+		return <div><ol className='topicList'>{topics.map((item) => {
 			return <li key={item.id}><Topic id={item.id} name={item.name}/></li>;
-		})}</ol>
+		})}</ol></div>
 	}
 }
