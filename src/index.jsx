@@ -39,7 +39,9 @@ class App extends React.Component {
 				<TopicList/>
 				<AddTopic/>
 			</div>
-			<Views/>
+			<div>
+			  <Views/>
+			</div>
 			</div>
 			</Provider>)
 	}

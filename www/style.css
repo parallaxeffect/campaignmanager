@@ -1,4 +1,7 @@
-
+#app>div{
+	display: flex;
+	flex-direction: row;
+}
 
 h1 {
 	color: navy;
@@ -18,10 +21,15 @@ h1 {
 }
 
 .topicList li div span {
-	font-size: 32px; 
+	font-size: 32px;
 	font-weight: bold;
 	position: relative;
 	right: 0;
+}
+
+.note-view {
+	display: flex;
+	flex-direction: column;
 }
 
  button {

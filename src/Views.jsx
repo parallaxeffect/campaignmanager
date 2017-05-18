@@ -28,14 +28,17 @@ export class NoteView extends React.Component {
 	}
 	render () {
 		const {id, name, note} = this.props;
-		return id ? <div><input type='text' value={name} onChange={(e)=>this.handleNameChange(e)}/>
+		return id ? <div className='note-view'><input type='text' value={name} onChange={(e)=>this.handleNameChange(e)}/>
 				<textarea value={note} onChange={(e)=>this.handleChange(e)}/>
 			</div> : null
 	}
 }
 
+@connect((state)=>{
+	return {id: state.view}
+})
 export class Views extends React.Component {
 	render () {
-		return <NoteView/>
+		return this.props.id ? <NoteView/> : null
 	}
 }
